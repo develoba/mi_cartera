@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mi_cartera/widgets/expenses.dart';
 
-class MonthScreen extends StatelessWidget {
-  const MonthScreen({ super.key });
+class DayScreen extends StatelessWidget {
+  const DayScreen({ super.key });
 
   @override
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Text('Total expenses'),
-        Text('Month Chart'),
+        Expenses()
       ],
     );
   }

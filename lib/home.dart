@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mi_cartera/screens/day_screen.dart';
 import 'package:mi_cartera/screens/month_screen.dart';
 
-class Expenses extends StatelessWidget {
-  const Expenses({ super.key });
+class Home extends StatelessWidget {
+  const Home({ super.key });
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: 2,
       length: 3,
       child: Scaffold(
         appBar: AppBar(
@@ -40,7 +42,7 @@ class Expenses extends StatelessWidget {
           children: [
             MonthScreen(),
             Center(child: Text('Week screen')),
-            Center(child: Text('Daily screen')),
+            DayScreen(),
           ],
         ),
       )
