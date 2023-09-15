@@ -5,9 +5,10 @@ import 'package:mi_cartera/widgets/expenses_list.dart';
 
 
 class Expenses extends StatelessWidget {
-  const Expenses({ super.key, required this.expenses });
+  const Expenses({ super.key, required this.expenses, required this.onDelete });
 
   final List<Expense> expenses;
+  final void Function(Expense expense) onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class Expenses extends StatelessWidget {
         Expanded(
           child: ExpensesList(
             expenses: expenses,
+            onDelete: onDelete,
           ),
         )
       ],

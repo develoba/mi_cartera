@@ -33,18 +33,24 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-    void _openAddExpense() {
-      showModalBottomSheet(
-        context: context,
-        builder: (ctx) => NewExpense(onAddExpense: _onAddExpense,),
-      );
-    }
+  void _openAddExpense() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => NewExpense(onAddExpense: _onAddExpense,),
+    );
+  }
 
-    void _onAddExpense(Expense expense) {
-      setState(() {
-        _registeredExpenses.add(expense);
-      });
-    }
+  void _onAddExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.add(expense);
+    });
+  }
+
+  void _onDeleteExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +71,7 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      body: Expenses(expenses: _registeredExpenses,),
+      body: Expenses(expenses: _registeredExpenses, onDelete: _onDeleteExpense,),
       floatingActionButton: FloatingActionButton(
         onPressed: _openAddExpense,
         child: const Icon(Icons.add),

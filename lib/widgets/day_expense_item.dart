@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mi_cartera/models/expense.dart';
 
 class DayExpenseItem extends StatelessWidget {
-  const DayExpenseItem(this.expense, { super.key });
+  const DayExpenseItem(this.expense, { super.key, required this.onDelete });
 
   final Expense expense;
+  final void Function(Expense expense) onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class DayExpenseItem extends StatelessWidget {
             ),
             const Spacer(),
             IconButton(
-              onPressed: () {},
+              onPressed: () => onDelete(expense),
               icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.error.withOpacity(0.75),),
             ),
           ],
