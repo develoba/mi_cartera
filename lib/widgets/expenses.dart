@@ -1,36 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:mi_cartera/models/expense.dart';
-import 'package:mi_cartera/widgets/day_expense_item.dart';
+import 'package:mi_cartera/widgets/expenses_list.dart';
 
-
-final List<Expense> _registeredExpenses = [
-  Expense(
-    title: 'Comida',
-    amount: 30.5,
-    category: Category.compras,
-    date: DateTime.now(),
-  ),
-  Expense(
-    title: 'raquetas',
-    amount: 30.5,
-    category: Category.deporte,
-    date: DateTime.now(),
-  ),
-];
 
 
 class Expenses extends StatelessWidget {
-  const Expenses({ super.key });
+  const Expenses({ super.key, required this.expenses });
+
+  final List<Expense> expenses;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          ..._registeredExpenses.map((expense) => DayExpenseItem(expense))
-        ],
-      ),
+    return Column(
+      children: [
+        const Text('Expenses'),
+        const Text('Chart'),
+        Expanded(
+          child: ExpensesList(
+            expenses: expenses,
+          ),
+        )
+      ],
     );
   }
 }

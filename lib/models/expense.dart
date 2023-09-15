@@ -1,6 +1,8 @@
 
 enum Category { varios, ropa, compras, ocio, deporte, gasolina, hogar, regalos }
 
+
+
 class Expense {
   Expense({
     required this.title,

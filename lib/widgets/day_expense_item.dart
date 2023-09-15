@@ -10,7 +10,7 @@ class DayExpenseItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
             Container(
